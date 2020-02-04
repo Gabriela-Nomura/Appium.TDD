@@ -1,10 +1,11 @@
-package br.com.rsinet.hub.ProjetoAppium.Utils;
+package br.com.rsinet.hub.ProjetoAppium.Manager;
 
 import java.net.URL;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
+import br.com.rsinet.hub.ProjetoAppium.Utils.MassaDeDados;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 
@@ -35,7 +36,7 @@ public class DriverManager {
 	}
 
 	public static void configExcel() throws Exception {
-		ConfigExcel.setExcelFile(Dados.Path_TestData, "Teste");
+		MassaDeDados.setExcelFile(MassaDeDados.Path_TestData, "Teste");
 	}
 
 	public static void encerra(WebDriver driver) {

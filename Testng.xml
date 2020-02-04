@@ -1,0 +1,24 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Testes Advantage Shopping">
+
+	<test name="Busca por clique">
+		<classes>
+			<class
+				name="br.com.rsinet.hub.ProjetoAppium.testes.BuscaClique" />
+		</classes>
+	</test>
+
+	<test name="Busca pela lupa">
+		<classes>
+			<class name="br.com.rsinet.hub.ProjetoAppium.testes.BuscaLupa" />
+		</classes>
+	</test>
+
+	<test name="Cadastro de um usuario">
+		<classes>
+			<class name="br.com.rsinet.hub.ProjetoAppium.testes.Cadastro" />
+		</classes>
+	</test>
+
+</suite>

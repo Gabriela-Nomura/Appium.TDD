@@ -8,6 +8,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import br.com.rsinet.hub.ProjetoAppium.Utils.MassaDeDados;
+
 public class HomePage {
 	/**
 	 * Classe de manipulacao de webElements da pagina inicial da aplicacao
@@ -27,10 +29,12 @@ public class HomePage {
 
 //ícone menu da tela inicial recebe um clique
 	private WebElement menuIcone() {
+		driver.manage().timeouts().implicitlyWait(3000, TimeUnit.MILLISECONDS);
 		return driver.findElement(By.id("com.Advantage.aShopping:id/imageViewMenu"));
 	}
 
 	public void clicaNoMenu() {
+		waitUntil(menuIcone());
 		menuIcone().click();
 	}
 
@@ -51,58 +55,40 @@ public class HomePage {
 
 	}
 
+	private WebElement campoBusca() {
+		return driver.findElement(By.id("com.Advantage.aShopping:id/editTextSearch"));
+	}
+
+	public void insereValorLupaInvalido() throws Exception {
+		waitUntil(campoBusca());
+		campoBusca().sendKeys(MassaDeDados.buscaLupaFalha());
+	}
+
+	public void insereValorLupaValido() throws Exception {
+		waitUntil(campoBusca());
+		campoBusca().sendKeys(MassaDeDados.buscaLupa());
+	}
+
+	private WebElement lupaIcone() {
+		return driver.findElement(By.id("com.Advantage.aShopping:id/imageViewSearch"));
+	}
+
+	public void processaBusca() {
+		lupaIcone().click();
+	}
+
 	public void clicaNaNovaConta() {
 		waitUntil(novaConta());
 		novaConta().click();
-//		novaConta.sendKeys(Keys.ENTER);
 	}
+
+	private WebElement HeadPhone() {
+		return driver.findElement(By.xpath(
+				"//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout[2]/android.widget.LinearLayout/android.support.v7.widget.RecyclerView/android.widget.RelativeLayout[2]/android.widget.ImageView"));
+	}
+
+	public void clickHeadphones() {
+		HeadPhone().click();
+	}
+
 }
-//
-//	public void seleciona() {
-//		produtoSeleciona.click();
-//	}
-//
-//	public boolean logadoNomeUser() throws Exception {
-//
-//		try {
-//			WebDriverWait wait = new WebDriverWait(driver, 15);
-//			wait.until(ExpectedConditions.textToBePresentInElement(userText, constantes.userName(3)));
-//		} catch (Exception e) {
-//
-//			return userText.isDisplayed();
-//		}
-//		return userText.isDisplayed();
-//	}
-//
-//	public void clickOn_HeadPhone() {
-//		waitUntil(HeadPhones);
-//		HeadPhones.click();
-//		Log.info("A categoria de Headphones recebeu um clique");
-//	}
-//
-//	public void clickOn_produtos() {
-//		waitUntil(produto);
-//		produto.click();
-//		Log.info("O produto selecionado recebeu um clique");
-//	}
-//
-//	public void clickOn_busca() {
-//		waitUntil(busca);
-//		busca.click();
-//		Log.info("O �cone de busca recebeu um clique");
-//	}
-//
-//	public void sendText_buscaFalha() throws Exception {
-//		waitUntil(buscaBox);
-//		buscaBox.sendKeys(constantes.buscaLupaFalha());
-//		Log.info("O �cone de busca recebeu um clique");
-//		buscaBox.sendKeys(Keys.ENTER);
-//	}
-//
-//	public void sendText_busca() throws Exception {
-//		waitUntil(buscaBox);
-//		buscaBox.sendKeys(constantes.buscaLupa());
-//		Log.info("O �cone de busca recebeu um clique");
-//		buscaBox.sendKeys(Keys.ENTER);
-//	}
-//}

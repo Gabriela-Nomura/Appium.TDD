@@ -1,12 +1,17 @@
 package br.com.rsinet.hub.ProjetoAppium.Pages;
 
+import java.util.UUID;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import br.com.rsinet.hub.ProjetoAppium.Utils.Dados;
+import br.com.rsinet.hub.ProjetoAppium.Utils.MassaDeDados;
+import br.com.rsinet.hub.ProjetoAppium.Utils.UserName;
+import io.appium.java_client.TouchAction;
+import io.appium.java_client.touch.offset.PointOption;
 
 public class CadastraPage {
 	/**
@@ -16,6 +21,7 @@ public class CadastraPage {
 
 	public CadastraPage(WebDriver driver) {
 		this.driver = driver;
+
 	}
 
 	// Metodo que aguarda até que o elemento esteja disponivel para receber o clique
@@ -31,9 +37,13 @@ public class CadastraPage {
 	}
 
 //Insere o nome de usuario de acordo com o valor lido pelo excel. i= linha a ser lida
-	public void insereNomeUsuario(int i) throws Exception {
+	public void insereNomeUsuario() {
 		waitUntil(nomeUsuarioBox());
-		nomeUsuarioBox().sendKeys(Dados.userName(i));
+		nomeUsuarioBox().sendKeys(UserName.getNomeUsuario(10));
+	}
+	public void insereNomeInvalido(int i)throws Exception {
+		waitUntil(nomeUsuarioBox());
+		nomeUsuarioBox().sendKeys(MassaDeDados.userName(i));
 	}
 
 	private WebElement emailBox() {
@@ -42,7 +52,7 @@ public class CadastraPage {
 	}
 
 	public void insereEmail() throws Exception {
-		emailBox().sendKeys(Dados.userEmail());
+		emailBox().sendKeys(MassaDeDados.userEmail());
 	}
 
 	private WebElement senhaBox() {
@@ -51,7 +61,7 @@ public class CadastraPage {
 	}
 
 	public void insereSenha() throws Exception {
-		senhaBox().sendKeys(Dados.userSenha());
+		senhaBox().sendKeys(MassaDeDados.userSenha());
 	}
 
 	private WebElement confirmaSenhaBox() {
@@ -60,7 +70,7 @@ public class CadastraPage {
 	}
 
 	public void insereSenhaConfirmacao() throws Exception {
-		confirmaSenhaBox().sendKeys(Dados.userSenhaConfirmacao());
+		confirmaSenhaBox().sendKeys(MassaDeDados.userSenhaConfirmacao());
 	}
 
 	private WebElement primeiroNomeBox() {
@@ -69,7 +79,7 @@ public class CadastraPage {
 	}
 
 	public void inserePrimeiroNome() throws Exception {
-		primeiroNomeBox().sendKeys(Dados.userPrimeiroNome());
+		primeiroNomeBox().sendKeys(MassaDeDados.userPrimeiroNome());
 	}
 
 	private WebElement ultimoNomeBox() {
@@ -78,38 +88,47 @@ public class CadastraPage {
 	}
 
 	public void insereUltimoNome() throws Exception {
-		ultimoNomeBox().sendKeys(Dados.userUltimoNome());
+		ultimoNomeBox().sendKeys(MassaDeDados.userUltimoNome());
 	}
 
 	private WebElement telefoneBox() {
 		return driver.findElement(By.xpath(
 				"//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[2]/android.widget.LinearLayout/android.widget.RelativeLayout/android.widget.EditText"));
 	}
+
 	public void insereTelefone() throws Exception {
-		telefoneBox().sendKeys(Dados.userTelefone());
+		telefoneBox().sendKeys(MassaDeDados.userTelefone());
 	}
-	
+
 	private WebElement localizacao() {
-	return driver.findElement(By.id("com.Advantage.aShopping:id/switchLocation"));
+		return driver.findElement(By.id("com.Advantage.aShopping:id/switchLocation"));
 	}
+
 	public void preencheEndereco() {
-				localizacao().click();
+		localizacao().click();
 	}
-	
+
 	private WebElement registraBotao() {
-	return driver.findElement(By.id("com.Advantage.aShopping:id/buttonRegister"));
+		return driver.findElement(By.id("com.Advantage.aShopping:id/buttonRegister"));
+	}
+	public boolean botaoRegistraAtivo() {
+		return registraBotao().isEnabled();
+		
 	}
 	public void clicaNoRegistro() {
 		registraBotao().click();
 	}
+
+	
 	
 	private WebElement autorizacao() {
 		return driver.findElement(By.id("com.android.packageinstaller:id/permission_allow_button"));
 	}
+
 	public void autorizaLocalizacao() {
 		autorizacao().click();
 	}
-	
+
 //
 //	public void clickOn_pais() {
 //		paisUsuario.click();
