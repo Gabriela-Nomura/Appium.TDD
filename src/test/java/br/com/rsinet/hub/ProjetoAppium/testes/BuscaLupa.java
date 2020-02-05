@@ -33,7 +33,7 @@ public class BuscaLupa {
 	// Inicia o reporte
 	@BeforeTest
 	public void report() {
-		ExtentReport.setExtent();
+		ExtentReport.setExtent(); 
 	}
 
 	// Instancia o driver, as paginas, as ações de toque e configura o arquivo de
