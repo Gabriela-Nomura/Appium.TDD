@@ -27,8 +27,6 @@ public class BuscaLupa {
 	HomePage home;
 	TouchAction toque;
 	private ExtentTest test;
-
-
 	
 	@BeforeMethod
 	public void inicio() throws Exception {
@@ -54,14 +52,14 @@ public class BuscaLupa {
 		home.insereValorLupaValido();
 		home.processaBusca();
 		AssertJUnit.assertTrue(busca.contemResultado());
+		ExtentReport.endReport();
 	}
 
 	
 	
-	@AfterSuite
+	@AfterMethod
 	public void finalizaReporta(ITestResult  result) throws Exception {
 		ExtentReport.tearDown(result, test, driver);
-		ExtentReport.endReport();
 		DriverManager.encerra(driver);
 	}
 }

@@ -30,8 +30,7 @@ public class Cadastro {
 	TouchAction toque;
 	private ExtentTest test;
 
-	
-	@BeforeSuite
+	@BeforeMethod
 	public void inicio() throws Exception {
 		ExtentReport.setExtent();
 		driver = DriverManager.configDriver();
@@ -50,7 +49,6 @@ public class Cadastro {
 		home.clicaNoMenu();
 		home.clicaNoLogin();
 		home.clicaNaNovaConta();
-
 //Pagina Cadastra - Dados da conta
 		cadastra.insereNomeUsuario();
 		cadastra.insereEmail();
@@ -85,14 +83,13 @@ public class Cadastro {
 		cadastra.insereSenhaConfirmacao();
 		toque.press(PointOption.point(860, 1400)).moveTo(PointOption.point(814, 300)).release().perform();
 		cadastra.clicaNoRegistro();
-
 		Assert.assertTrue(cadastra.botaoRegistraAtivo());
+		ExtentReport.endReport();
 	}
 
 	@AfterMethod
-	public void encerraReport(ITestResult result)  throws Exception{
-        ExtentReport.tearDown(result, test, driver);
-        ExtentReport.endReport();
-        DriverManager.encerra(driver);
+	public void encerraReport(ITestResult result) throws Exception {
+		ExtentReport.tearDown(result, test, driver);
+		DriverManager.encerra(driver);
 	}
 }
