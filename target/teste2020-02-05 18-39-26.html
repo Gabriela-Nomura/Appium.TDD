@@ -46,7 +46,7 @@
 		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
 			<li>
                 <a href='#!'>
-                    <span class='label suite-start-time blue darken-3'>Feb 4, 2020 03:25:48 PM</span>
+                    <span class='label suite-start-time blue darken-3'>Feb 5, 2020 06:39:26 PM</span>
 				</a>
 			</li>
 			<li>
@@ -71,7 +71,7 @@
 					<i class='material-icons'>warning</i> Status
 				</a>
 				<ul id='tests-toggle' class='dropdown-content'>
-											<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
+											<li status='fail'><a href='#!'>Fail <i class='material-icons red-text'>cancel</i></a></li>
 					<li class='divider'></li>
 					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
 				</ul>
@@ -122,10 +122,10 @@
 					<canvas id='parent-analysis' width='100' height='80'></canvas>
 				</div>
 				<div class='block text-small'>
-					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>1</span> test(s) passed</span>
+					<span class='tooltipped' data-position='top' data-tooltip='75%'><span class='strong'>3</span> test(s) passed</span>
 				</div>
 				<div class='block text-small'>
-					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> test(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+					<span class='strong tooltipped' data-position='top' data-tooltip='25%'>1</span> test(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
 				</div>
 			</div>
 		</div>
@@ -137,10 +137,10 @@
 					<canvas id='child-analysis' width='100' height='80'></canvas>
 				</div>
 				<div class='block text-small'>
-					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>1</span> step(s) passed</span>
+					<span class='tooltipped' data-position='top' data-tooltip='0%'><span class='strong'>0</span> step(s) passed</span>
 				</div>
 				<div class='block text-small'>
-					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+					<span class='strong tooltipped' data-position='top' data-tooltip='100%'>2</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
 				</div>
 			</div>
 		</div>
@@ -157,15 +157,31 @@
 				
 				<li class='test displayed active  pass' status='pass' bdd='false' test-id='1'>
 					<div class='test-heading'>
-						<span class='test-name'>CadastroFalha</span>
-						<span class='test-time'>Feb 4, 2020 03:25:48 PM</span>
+						<span class='test-name'>Buscaporcliquevalida</span>
+						<span class='test-time'>Feb 5, 2020 06:39:40 PM</span>
 						<span class='test-status right pass'>pass</span>
 					</div>
 					<div class='test-content hide'>
 <div class='test-time-info'>
-	<span class='label start-time'>Feb 4, 2020 03:25:48 PM</span>
-	<span class='label end-time'>Feb 4, 2020 03:25:59 PM</span>
-	<span class='label time-taken grey lighten-1 white-text'>0h 0m 10s+974ms</span>
+	<span class='label start-time'>Feb 5, 2020 06:39:40 PM</span>
+	<span class='label end-time'>Feb 5, 2020 06:39:40 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+0ms</span>
+</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  fail' status='fail' bdd='false' test-id='2'>
+					<div class='test-heading'>
+						<span class='test-name'>Buscapelalupainvalida</span>
+						<span class='test-time'>Feb 5, 2020 06:39:55 PM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 5, 2020 06:39:55 PM</span>
+	<span class='label end-time'>Feb 5, 2020 06:39:58 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 2s+762ms</span>
 </div>
 	<div class='test-steps'>
 		<table class='bordered table-results'>
@@ -177,17 +193,61 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>3:25:59 PM</td>
-					<td class='step-details'>Caso de teste passou CadastroInvalido</td>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>6:39:58 PM</td>
+					<td class='step-details'>Caso de teste falhou BuscaInvalida</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>6:39:58 PM</td>
+					<td class='step-details'>Caso de teste falhou org.openqa.selenium.NoSuchElementException: An element could not be located on the page using the given search parameters.
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:25:48'
+System info: host: 'RSI1505', ip: '192.168.15.11', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_231'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {appActivity: .SplashActivity, appPackage: com.Advantage.aShopping, databaseEnabled: false, desired: {appActivity: .SplashActivity, appPackage: com.Advantage.aShopping, deviceName: CelularDaGabi, platformName: android}, deviceApiLevel: 28, deviceManufacturer: Google, deviceModel: AOSP on IA Emulator, deviceName: emulator-5554, deviceScreenDensity: 440, deviceScreenSize: 1080x2220, deviceUDID: emulator-5554, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, pixelRatio: 2.75, platform: LINUX, platformName: Android, platformVersion: 9, statBarHeight: 66, takesScreenshot: true, viewportRect: {height: 2022, left: 0, top: 66, width: 1080}, warnings: {}, webStorageEnabled: false}
+Session ID: 667f02e3-8b42-453e-b7c8-7b7bb385526f
+*** Element info: {Using=id, value=com.Advantage.aShopping:id/editTextSearch}</td>
 				</tr>
 			</tbody>
 		</table>
 	</div>
 							<ul class='screenshots'>
-								<li><img data-featherlight='C:\Users\gabriela.nomura\eclipse-workspace\ProjetoAppium/ProjetoAppium/test-outputCadastroInvalido2020-02-04 15-25-59.png' width='10%' src='C:\Users\gabriela.nomura\eclipse-workspace\ProjetoAppium/ProjetoAppium/test-outputCadastroInvalido2020-02-04 15-25-59.png' data-src='C:\Users\gabriela.nomura\eclipse-workspace\ProjetoAppium/ProjetoAppium/test-outputCadastroInvalido2020-02-04 15-25-59.png'></li>
+								<li><img data-featherlight='C:\Users\gabriela.nomura\eclipse-workspace\ProjetoAppium/ProjetoAppium/test-outputBuscaInvalida2020-02-05 18-39-58.png' width='10%' src='C:\Users\gabriela.nomura\eclipse-workspace\ProjetoAppium/ProjetoAppium/test-outputBuscaInvalida2020-02-05 18-39-58.png' data-src='C:\Users\gabriela.nomura\eclipse-workspace\ProjetoAppium/ProjetoAppium/test-outputBuscaInvalida2020-02-05 18-39-58.png'></li>
 							</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='3'>
+					<div class='test-heading'>
+						<span class='test-name'>Buscapelalupavalida</span>
+						<span class='test-time'>Feb 5, 2020 06:40:09 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 5, 2020 06:40:09 PM</span>
+	<span class='label end-time'>Feb 5, 2020 06:40:09 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+0ms</span>
+</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='4'>
+					<div class='test-heading'>
+						<span class='test-name'>CadastroFalha</span>
+						<span class='test-time'>Feb 5, 2020 06:40:21 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 5, 2020 06:40:21 PM</span>
+	<span class='label end-time'>Feb 5, 2020 06:40:21 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+0ms</span>
+</div>
 					</div>
 				</li>
 			</ul>
@@ -225,31 +285,31 @@
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Tests
-					<div class='panel-lead'>1</div>
+					<div class='panel-lead'>4</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Steps
-					<div class='panel-lead'>1</div>
+					<div class='panel-lead'>2</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Start
-					<div class='panel-lead'>Feb 4, 2020 03:25:48 PM</div>
+					<div class='panel-lead'>Feb 5, 2020 06:39:26 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 			 		End
-			 		<div class='panel-lead'>Feb 4, 2020 03:25:59 PM</div>
+			 		<div class='panel-lead'>Feb 5, 2020 06:40:33 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Time Taken
-					<div class='panel-lead'>0h 0m 11s+63ms</div>
+					<div class='panel-lead'>0h 1m 7s+22ms</div>
 				</div>
 			</div>
 			<div class='col s4'>
@@ -290,22 +350,22 @@
 
 		<script>
 			var statusGroup = {
-				passParent: 1,
-				failParent: 0,
+				passParent: 3,
+				failParent: 1,
 				fatalParent: 0,
 				errorParent: 0,
 				warningParent: 0,
 				skipParent: 0,
-				exceptionsParent: 0,
+				exceptionsParent: 1,
 				
-				passChild: 1,
-				failChild: 0,
+				passChild: 0,
+				failChild: 2,
 				fatalChild: 0,
 				errorChild: 0,
 				warningChild: 0,
 				skipChild: 0,
 				infoChild: 0,
-				exceptionsChild: 0,
+				exceptionsChild: 2,
 				
 				passGrandChild: 0,
 				failGrandChild: 0,

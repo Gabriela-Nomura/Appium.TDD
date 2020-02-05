@@ -7,6 +7,8 @@ import org.testng.annotations.BeforeTest;
 import org.testng.AssertJUnit;
 import static org.testng.Assert.assertTrue;
 
+import java.util.concurrent.TimeUnit;
+
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
@@ -27,7 +29,15 @@ public class BuscaLupa {
 	HomePage home;
 	TouchAction toque;
 	private ExtentTest test;
-	
+
+	// Inicia o reporte
+	@BeforeTest
+	public void report() {
+		ExtentReport.setExtent();
+	}
+
+	// Instancia o driver, as paginas, as ações de toque e configura o arquivo de
+	// excel
 	@BeforeMethod
 	public void inicio() throws Exception {
 		driver = DriverManager.configDriver();
@@ -35,13 +45,12 @@ public class BuscaLupa {
 		busca = new BuscaPage(driver);
 		home = new HomePage(driver);
 		toque = new TouchAction(driver);
-		ExtentReport.setExtent();
-	
 	}
 
 	@Test
 	public void BuscaInvalida() throws Exception {
-
+		test = ExtentReport.createTest("Buscapelalupainvalida");
+		driver.manage().timeouts().implicitlyWait(3000, TimeUnit.MILLISECONDS);
 		home.insereValorLupaInvalido();
 		home.processaBusca();
 		AssertJUnit.assertTrue(busca.semResultado());
@@ -49,17 +58,22 @@ public class BuscaLupa {
 
 	@Test
 	public void BuscaValida() throws Exception {
+		test = ExtentReport.createTest("Buscapelalupavalida");
+		driver.manage().timeouts().implicitlyWait(3000, TimeUnit.MILLISECONDS);
 		home.insereValorLupaValido();
 		home.processaBusca();
 		AssertJUnit.assertTrue(busca.contemResultado());
-		ExtentReport.endReport();
 	}
 
-	
-	
 	@AfterMethod
-	public void finalizaReporta(ITestResult  result) throws Exception {
+	public void finalizaReporta(ITestResult result) throws Exception {
 		ExtentReport.tearDown(result, test, driver);
-		DriverManager.encerra(driver);
+//		DriverManager.encerra(driver);
+	}
+
+	@AfterTest
+	public void encerraReport() {
+		ExtentReport.endReport();
+
 	}
 }

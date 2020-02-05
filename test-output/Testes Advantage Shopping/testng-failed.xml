@@ -1,38 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Testes Advantage Shopping]">
-  <test thread-count="5" name="Busca por clique(failed)">
-    <classes>
-      <class name="br.com.rsinet.hub.ProjetoAppium.testes.BuscaClique">
-        <methods>
-          <include name="finalizaReporta"/>
-          <include name="inicio"/>
-          <include name="BuscaValida"/>
-        </methods>
-      </class> <!-- br.com.rsinet.hub.ProjetoAppium.testes.BuscaClique -->
-    </classes>
-  </test> <!-- Busca por clique(failed) -->
-  <test thread-count="5" name="Busca pela lupa(failed)">
-    <classes>
-      <class name="br.com.rsinet.hub.ProjetoAppium.testes.BuscaLupa">
-        <methods>
-          <include name="BuscaValida"/>
-          <include name="finalizaReporta"/>
-          <include name="inicio"/>
-          <include name="BuscaInvalida"/>
-        </methods>
-      </class> <!-- br.com.rsinet.hub.ProjetoAppium.testes.BuscaLupa -->
-    </classes>
-  </test> <!-- Busca pela lupa(failed) -->
-  <test thread-count="5" name="Cadastro de um usuario(failed)">
+  <test thread-count="5" name="TESTES(failed)">
     <classes>
       <class name="br.com.rsinet.hub.ProjetoAppium.testes.Cadastro">
         <methods>
+          <include name="finalizaReporta"/>
           <include name="inicio"/>
+          <include name="report"/>
           <include name="encerraReport"/>
           <include name="CadastroValido"/>
         </methods>
       </class> <!-- br.com.rsinet.hub.ProjetoAppium.testes.Cadastro -->
     </classes>
-  </test> <!-- Cadastro de um usuario(failed) -->
+  </test> <!-- TESTES(failed) -->
 </suite> <!-- Failed suite [Testes Advantage Shopping] -->

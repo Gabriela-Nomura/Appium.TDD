@@ -15,6 +15,7 @@ import org.testng.annotations.Test;
 import com.aventstack.extentreports.ExtentTest;
 
 import br.com.rsinet.hub.ProjetoAppium.Manager.DriverManager;
+import br.com.rsinet.hub.ProjetoAppium.Pages.BuscaPage;
 import br.com.rsinet.hub.ProjetoAppium.Pages.CadastraPage;
 import br.com.rsinet.hub.ProjetoAppium.Pages.HomePage;
 import br.com.rsinet.hub.ProjetoAppium.Utils.ExtentReport;
@@ -30,21 +31,27 @@ public class Cadastro {
 	TouchAction toque;
 	private ExtentTest test;
 
-	@BeforeMethod
-	public void inicio() throws Exception {
-		ExtentReport.setExtent();
-		driver = DriverManager.configDriver();
-		DriverManager.configExcel();
-		cadastra = new CadastraPage(driver);
-		home = new HomePage(driver);
-		toque = new TouchAction(driver);
-	}
+	//Inicia o reporte
+		@BeforeTest
+		public void report() {
+			ExtentReport.setExtent();
+		}
+
+	//Instancia o driver, as paginas, as ações de toque  e configura o arquivo de excel
+		@BeforeMethod
+		public void inicio() throws Exception {
+			driver = DriverManager.configDriver();
+			DriverManager.configExcel();
+			cadastra = new CadastraPage(driver);
+			home = new HomePage(driver);
+			toque = new TouchAction(driver);
+		}
 
 	@Test
 //@CadastroValido
 	public void CadastroValido() throws Exception {
 //Interacoes na tela inicial
-		test = ExtentReport.createTest("CadastroSucesso");
+		test = ExtentReport.createTest("CadastroValido ");
 
 		home.clicaNoMenu();
 		home.clicaNoLogin();
@@ -86,10 +93,15 @@ public class Cadastro {
 		Assert.assertTrue(cadastra.botaoRegistraAtivo());
 		ExtentReport.endReport();
 	}
-
 	@AfterMethod
-	public void encerraReport(ITestResult result) throws Exception {
+	public void finalizaReporta(ITestResult result) throws Exception {
 		ExtentReport.tearDown(result, test, driver);
-		DriverManager.encerra(driver);
+//		DriverManager.encerra(driver);
+	}
+
+	@AfterTest
+	public void encerraReport() {
+		ExtentReport.endReport();
+
 	}
 }

@@ -2,21 +2,10 @@
 
 <suite name="Testes Advantage Shopping">
 
-	<test name="Busca por clique">
+	<test name="TESTES">
 		<classes>
-			<class
-				name="br.com.rsinet.hub.ProjetoAppium.testes.BuscaClique" />
-		</classes>
-	</test>
-
-	<test name="Busca pela lupa">
-		<classes>
+			<class name="br.com.rsinet.hub.ProjetoAppium.testes.BuscaClique" />
 			<class name="br.com.rsinet.hub.ProjetoAppium.testes.BuscaLupa" />
-		</classes>
-	</test>
-
-	<test name="Cadastro de um usuario">
-		<classes>
 			<class name="br.com.rsinet.hub.ProjetoAppium.testes.Cadastro" />
 		</classes>
 	</test>

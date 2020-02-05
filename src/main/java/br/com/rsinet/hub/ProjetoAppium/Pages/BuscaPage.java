@@ -29,12 +29,17 @@ public class BuscaPage {
 		return  driver.findElement(By.id("com.Advantage.aShopping:id/textViewNoProductsToShow")).isDisplayed();
 	}
 
-	public boolean contemResultado() {
-		return driver.findElement(By.id("com.Advantage.aShopping:id/RelativeLayoutProductControl")).isDisplayed();
+	private WebElement resultado(){
+		return driver.findElement(By.id("com.Advantage.aShopping:id/RelativeLayoutProductControl"));
+	}
+		public boolean contemResultado() {
+			waitUntil(resultado());
+	return resultado().isDisplayed();
 	}
 
 	private WebElement fone() {
-	return driver.findElement(By.xpath("/android.widget.RelativeLayout[@content-desc=\"Headphones\"]/android.widget.LinearLayout/android.widget.GridView/android.widget.RelativeLayout[1]/android.widget.TextView[1]"));
+	return driver.findElement(By.xpath("//android.widget.RelativeLayout[@content-desc=\"Headphones\"]/android.widget.LinearLayout/android.widget.GridView/android.widget.RelativeLayout[1]/android.widget.TextView[1]"));
+
 	}
 	
 	public void selecionaFone() {
