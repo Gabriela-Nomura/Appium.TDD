@@ -8,63 +8,43 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class MassaDeDados {
 	/**
-	 * Classe para fixa��o de atributos constantes. Leitura de dados de excel e
-	 * configura��o dos screenshots
+	 * Classe para fixacao de atributos constantes. Leitura de dados de excel
 	 */
+	
+	public static final String Path_TestData = "C://Users//gabriela.nomura//Documents//automacao//testData.xlsx";
+	public static final int Col_NomeBusca = 0;
+	public static final int Col_Elemento = 1;
 	public static XSSFSheet ExcelWSheet;
-
 	private static XSSFWorkbook ExcelWBook;
-
 	private static XSSFCell Cell;
 
-//Determina o m�todo para configurar o arquivo do excel a ser lido
+//Metodo para configurar o arquivo do excel a ser lido
 	public static void setExcelFile(String Path, String SheetName) throws Exception {
-
 		try {
-
-//Abre o arquivo do excel
+			//Abre o arquivo do excel
 			FileInputStream ExcelFile = new FileInputStream(Path);
-
-// Acessa a uma determinada planilha com referencia de nome do arquivo e da planilha
-
+			// Acessa a uma determinada planilha com referencia de nome do arquivo e da planilha
 			ExcelWBook = new XSSFWorkbook(ExcelFile);
-
 			ExcelWSheet = ExcelWBook.getSheet(SheetName);
-
 		} catch (Exception e) {
-
 			throw (e);
-
 		}
-
 	}
 
 //Obtem a informa�ao da celula da coluna, recebe como par�metros os valores de linha e coluna
 
 	public static String getCellData(int RowNum, int ColNum) throws Exception {
-
 		try {
-
 			Cell = ExcelWSheet.getRow(RowNum).getCell(ColNum);
-
 			String CellData = Cell.getStringCellValue();
-
 			return CellData;
-
 		} catch (Exception e) {
 			System.out.println(e);
 			return "";
-
 		}
 	}
 
-	public static String URL = "https://www.advantageonlineshopping.com/";
-
-	public static final String Path_TestData = "C://Users//gabriela.nomura//Documents//automacao//testData.xlsx";
-
-	public static final int Col_NomeBusca = 0;
-	public static final int Col_Elemento = 1;
-
+//Metodos para leitura e obtencao dos valores a partir do excel
 	public static final String userName(int i) throws Exception {
 		return getCellData(i, 0);
 	}

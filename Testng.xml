@@ -4,9 +4,9 @@
 
 	<test name="TESTES">
 		<classes>
-			<class name="br.com.rsinet.hub.ProjetoAppium.testes.BuscaClique" />
-			<class name="br.com.rsinet.hub.ProjetoAppium.testes.BuscaLupa" />
 			<class name="br.com.rsinet.hub.ProjetoAppium.testes.Cadastro" />
+			<class name="br.com.rsinet.hub.ProjetoAppium.testes.BuscaLupa" />
+			<class name="br.com.rsinet.hub.ProjetoAppium.testes.BuscaClique" />
 		</classes>
 	</test>
 

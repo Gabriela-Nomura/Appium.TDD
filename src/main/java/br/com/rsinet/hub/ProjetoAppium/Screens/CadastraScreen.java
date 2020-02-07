@@ -1,6 +1,4 @@
-package br.com.rsinet.hub.ProjetoAppium.Pages;
-
-import java.util.UUID;
+package br.com.rsinet.hub.ProjetoAppium.Screens;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -10,21 +8,21 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import br.com.rsinet.hub.ProjetoAppium.Utils.MassaDeDados;
 import br.com.rsinet.hub.ProjetoAppium.Utils.UserName;
-import io.appium.java_client.TouchAction;
-import io.appium.java_client.touch.offset.PointOption;
+import io.appium.java_client.android.AndroidDriver;
 
-public class CadastraPage {
+public class CadastraScreen {
 	/**
 	 * Classe de manipulacao de webElements da pagina de cadastro
 	 */
 	final WebDriver driver;
 
-	public CadastraPage(WebDriver driver) {
+	// Configura o driver que sera utilizado na instancia dos objetos da classe
+	public CadastraScreen(WebDriver driver) {
 		this.driver = driver;
 
 	}
 
-	// Metodo que aguarda até que o elemento esteja disponivel para receber o clique
+	// Metodo de espera para aguardar visibilidade de elemento a interagir
 	private void waitUntil(WebElement element) {
 		WebDriverWait wait = new WebDriverWait(driver, 150);
 		wait.until(ExpectedConditions.elementToBeClickable(element));
@@ -36,12 +34,15 @@ public class CadastraPage {
 				"//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.RelativeLayout/android.widget.EditText\r\n"));
 	}
 
-//Insere o nome de usuario de acordo com o valor lido pelo excel. i= linha a ser lida
+//Insere o nome de usuario de acordo com a geracao de nome feita aleatoriamente com 10 carac
 	public void insereNomeUsuario() {
 		waitUntil(nomeUsuarioBox());
 		nomeUsuarioBox().sendKeys(UserName.getNomeUsuario(10));
 	}
-	public void insereNomeInvalido(int i)throws Exception {
+
+	// Insere o nome de usuario de acordo com a massa de dados o parametro i se
+	// refere a linha que sera lida
+	public void insereNomeInvalido(int i) throws Exception {
 		waitUntil(nomeUsuarioBox());
 		nomeUsuarioBox().sendKeys(MassaDeDados.userName(i));
 	}
@@ -67,6 +68,12 @@ public class CadastraPage {
 	private WebElement confirmaSenhaBox() {
 		return driver.findElement(By.xpath(
 				"//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.LinearLayout/android.widget.LinearLayout[4]/android.widget.RelativeLayout/android.widget.EditText"));
+	}
+
+	public void ajustaTela(AndroidDriver driver, String visibleText) {
+		driver.findElementByAndroidUIAutomator(
+				"new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textContains(\""
+						+ visibleText + "\").instance(0))");
 	}
 
 	public void insereSenhaConfirmacao() throws Exception {
@@ -111,16 +118,16 @@ public class CadastraPage {
 	private WebElement registraBotao() {
 		return driver.findElement(By.id("com.Advantage.aShopping:id/buttonRegister"));
 	}
+
 	public boolean botaoRegistraAtivo() {
 		return registraBotao().isEnabled();
-		
+
 	}
+
 	public void clicaNoRegistro() {
 		registraBotao().click();
 	}
 
-	
-	
 	private WebElement autorizacao() {
 		return driver.findElement(By.id("com.android.packageinstaller:id/permission_allow_button"));
 	}
@@ -128,52 +135,4 @@ public class CadastraPage {
 	public void autorizaLocalizacao() {
 		autorizacao().click();
 	}
-
-//
-//	public void clickOn_pais() {
-//		paisUsuario.click();
-//		Log.info("Seleciona a lista de pa�ses");
-//	}
-//
-//	public void seleciona_pais() {
-//		Select paisBox = new Select(CadastraPage.paisUsuario);
-//		Log.info("Instancia um objeto select para manipula��o da lista");
-//		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-//		Log.info("Driver recebeu um comando de espera implicito por 10 segundos");
-//		paisBox.selectByVisibleText("Brazil");
-//		Log.info("O pa�s Brazil foi selecionado");
-//	}
-//
-//	public void sendUserCidade() throws Exception {
-//		cidadeUsuario.sendKeys(constantes.userCidade());
-//		Log.info("Insere a cidade do usu�rio");
-//	}
-//
-//	public void sendUserEndereco() throws Exception {
-//		enderecoUsuario.sendKeys(constantes.userEndereco());
-//		Log.info("Insere o endere�o do usu�rio");
-
-//	}
-//
-//	public void sendUserEstado() throws Exception {
-//		estadoUsuario.sendKeys(constantes.userEstado());
-//		Log.info("Insere o estado do usu�rio");
-//	}
-//
-//	public void sendUserCep() throws Exception {
-//		cepUsuario.sendKeys(constantes.userCep());
-//		Log.info("Insere o CEP do usu�rio");
-//	}
-//
-//	public void aceitaTermos() {
-//		if (aceitaTermos.isSelected() == false)
-//			aceitaTermos.click();
-//		Log.info("A op��o de aceita��o dos termos de privacidade foi selecionada");
-//	}
-//
-//	public void registaUser() {
-//		registraUsuario.click();
-//		Log.info("O link para registrar um novo usu�rio recebeu um clique");
-//	}
-
 }

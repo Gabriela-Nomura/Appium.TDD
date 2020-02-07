@@ -8,51 +8,47 @@ import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import com.aventstack.extentreports.ExtentTest;
 
 import br.com.rsinet.hub.ProjetoAppium.Manager.DriverManager;
-import br.com.rsinet.hub.ProjetoAppium.Pages.BuscaPage;
-import br.com.rsinet.hub.ProjetoAppium.Pages.CadastraPage;
-import br.com.rsinet.hub.ProjetoAppium.Pages.HomePage;
+import br.com.rsinet.hub.ProjetoAppium.Screens.CadastraScreen;
+import br.com.rsinet.hub.ProjetoAppium.Screens.HomeScreen;
 import br.com.rsinet.hub.ProjetoAppium.Utils.ExtentReport;
-import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.touch.offset.PointOption;
 
 public class Cadastro {
 
+	@SuppressWarnings("rawtypes")
 	public static AndroidDriver driver;
-	CadastraPage cadastra;
-	HomePage home;
-	TouchAction toque;
+	private CadastraScreen cadastra;
+	private HomeScreen home;
 	private ExtentTest test;
 
-	//Inicia o reporte
-		@BeforeTest
-		public void report() {
-			ExtentReport.setExtent();
-		}
+	// Inicia o reporte
+	@BeforeTest
+	public void iniciaReport() {
+		ExtentReport.setExtent();
+	}
 
-	//Instancia o driver, as paginas, as ações de toque  e configura o arquivo de excel
-		@BeforeMethod
-		public void inicio() throws Exception {
-			driver = DriverManager.configDriver();
-			DriverManager.configExcel();
-			cadastra = new CadastraPage(driver);
-			home = new HomePage(driver);
-			toque = new TouchAction(driver);
-		}
+	// Instancia o driver, as paginas, as ações de toque e configura o arquivo de
+	// excel
+	@BeforeMethod
+	public void inicioTeste() throws Exception {
+		driver = DriverManager.configDriver();
+		DriverManager.configExcel();
+		cadastra = new CadastraScreen(driver);
+		home = new HomeScreen(driver);
+	}
 
 	@Test
 //@CadastroValido
 	public void CadastroValido() throws Exception {
 //Interacoes na tela inicial
 		test = ExtentReport.createTest("CadastroValido ");
-
+		test.createNode("Teste inicializado com sucesso ");
 		home.clicaNoMenu();
 		home.clicaNoLogin();
 		home.clicaNaNovaConta();
@@ -64,22 +60,27 @@ public class Cadastro {
 		cadastra.inserePrimeiroNome();
 		cadastra.insereUltimoNome();
 		cadastra.insereTelefone();
-		toque.press(PointOption.point(860, 1400)).moveTo(PointOption.point(814, 300)).release().perform();
+		cadastra.ajustaTela(driver, "REGISTER");
 		cadastra.preencheEndereco();
 		cadastra.autorizaLocalizacao();
 		cadastra.clicaNoRegistro();
+		test.createNode("As informacoes foram inseridas com sucesso ");
 		driver.manage().timeouts().implicitlyWait(3000, TimeUnit.MILLISECONDS);
 		home.clicaNoMenu();
 		String nomeUsuarioCadastrado = driver.findElement(By.id("com.Advantage.aShopping:id/textViewMenuUser"))
 				.getText();
 		Assert.assertTrue(nomeUsuarioCadastrado != null);
+		test.createNode("O cadastro foi concluído, e um novo usuario foi registrado com sucesso ");
+		test.createNode("O teste foi encerrado ");
 
 	}
 
 	@Test
+	// @CadastroInvalido
 	public void CadastroInvalido() throws Exception {
 		// Interacoes na tela inicial
 		test = ExtentReport.createTest("CadastroFalha");
+		test.createNode("Teste inicializado com sucesso ");
 		home.clicaNoMenu();
 		home.clicaNoLogin();
 		home.clicaNaNovaConta();
@@ -88,15 +89,20 @@ public class Cadastro {
 		cadastra.insereEmail();
 		cadastra.insereSenha();
 		cadastra.insereSenhaConfirmacao();
-		toque.press(PointOption.point(860, 1400)).moveTo(PointOption.point(814, 300)).release().perform();
+		cadastra.ajustaTela(driver, "REGISTER");
 		cadastra.clicaNoRegistro();
+		test.createNode("As informacoes foram inseridas com sucesso ");
 		Assert.assertTrue(cadastra.botaoRegistraAtivo());
-		ExtentReport.endReport();
+		test.createNode("O cadastro foi concluído, e um novo usuario nao foi registrado  ");
+		test.createNode("O teste foi encerrado ");
+
 	}
+
 	@AfterMethod
-	public void finalizaReporta(ITestResult result) throws Exception {
+	public void finalizaTeste(ITestResult result) throws Exception {
 		ExtentReport.tearDown(result, test, driver);
-//		DriverManager.encerra(driver);
+//		DriverManager.configDriver().resetApp();
+		DriverManager.encerra();
 	}
 
 	@AfterTest

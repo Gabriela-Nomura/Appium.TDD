@@ -15,6 +15,7 @@ public class DriverManager {
 	 * Classe de configura��o do driver a executar os testes. Inicializa��o do
 	 * navegador, defini��o da url, arquivo do excel e 
 	 */
+	@SuppressWarnings("rawtypes")
 	static AndroidDriver driver;
 	
 	public static DesiredCapabilities capabilities = new DesiredCapabilities();
@@ -39,9 +40,10 @@ public class DriverManager {
 		MassaDeDados.setExcelFile(MassaDeDados.Path_TestData, "Teste");
 	}
 
-	public static void encerra(WebDriver driver) {
+	public static WebDriver encerra () {
 		if (driver != null) {
-			driver.close();
+			driver.quit();
 		}
+		return driver = null;
 	}
 }

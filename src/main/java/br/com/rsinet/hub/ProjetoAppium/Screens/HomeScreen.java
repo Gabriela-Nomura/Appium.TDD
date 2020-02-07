@@ -1,4 +1,4 @@
-package br.com.rsinet.hub.ProjetoAppium.Pages;
+package br.com.rsinet.hub.ProjetoAppium.Screens;
 
 import java.util.concurrent.TimeUnit;
 
@@ -10,13 +10,14 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import br.com.rsinet.hub.ProjetoAppium.Utils.MassaDeDados;
 
-public class HomePage {
+public class HomeScreen {
 	/**
 	 * Classe de manipulacao de webElements da pagina inicial da aplicacao
 	 */
 	final WebDriver driver;
+	// Configura o driver que sera utilizado na instancia dos objetos da classe
 
-	public HomePage(WebDriver driver) {
+	public HomeScreen(WebDriver driver) {
 		this.driver = driver;
 
 	}
@@ -34,7 +35,7 @@ public class HomePage {
 	}
 
 	public void clicaNoMenu() {
-		waitUntil(menuIcone());
+		driver.manage().timeouts().implicitlyWait(3000, TimeUnit.MILLISECONDS);
 		menuIcone().click();
 	}
 
@@ -82,13 +83,21 @@ public class HomePage {
 		novaConta().click();
 	}
 
-	private WebElement HeadPhone() {
-		return driver.findElement(By.xpath(
-				"//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout[2]/android.widget.LinearLayout/android.support.v7.widget.RecyclerView/android.widget.RelativeLayout[2]/android.widget.TextView"));
-	}
+	private WebElement  HeadPhone() {
+		return driver.findElement(By.xpath("//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout[2]/android.widget.LinearLayout/android.support.v7.widget.RecyclerView/android.widget.RelativeLayout[2]/android.widget.TextView"));
+	}														
 
 	public void clickHeadphones() {
+		waitUntil(HeadPhone());
 		HeadPhone().click();
 	}
 
+	private WebElement laptops() {
+		return driver.findElement(By.xpath("//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout[2]/android.widget.LinearLayout/android.support.v7.widget.RecyclerView/android.widget.RelativeLayout[1]/android.widget.TextView"));
+	}
+	public void clicaLaptop() {
+		waitUntil(laptops());
+		laptops().click();
+	}
+	
 }
