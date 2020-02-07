@@ -11,9 +11,10 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 
-import br.com.rsinet.hub.ProjetoAppium.Manager.DriverManager;
+import br.com.rsinet.hub.ProjetoAppium.Factory.DriverFactory;
 import br.com.rsinet.hub.ProjetoAppium.Screens.CadastraScreen;
 import br.com.rsinet.hub.ProjetoAppium.Screens.HomeScreen;
 import br.com.rsinet.hub.ProjetoAppium.Utils.ExtentReport;
@@ -25,20 +26,23 @@ public class Cadastro {
 	public static AndroidDriver driver;
 	private CadastraScreen cadastra;
 	private HomeScreen home;
-	private ExtentTest test;
+	private ExtentReports relatorio;
+	private ExtentTest cadastroValido;
+	private ExtentTest cadastroInvalido;
+	private String nomeDoTeste;
 
 	// Inicia o reporte
 	@BeforeTest
 	public void iniciaReport() {
-		ExtentReport.setExtent();
+		relatorio = ExtentReport.iniciaRelatorio();
 	}
 
 	// Instancia o driver, as paginas, as ações de toque e configura o arquivo de
 	// excel
 	@BeforeMethod
 	public void inicioTeste() throws Exception {
-		driver = DriverManager.configDriver();
-		DriverManager.configExcel();
+		driver = DriverFactory.iniciaDriver();
+		DriverFactory.configExcel();
 		cadastra = new CadastraScreen(driver);
 		home = new HomeScreen(driver);
 	}
@@ -47,8 +51,9 @@ public class Cadastro {
 //@CadastroValido
 	public void CadastroValido() throws Exception {
 //Interacoes na tela inicial
-		test = ExtentReport.createTest("CadastroValido ");
-		test.createNode("Teste inicializado com sucesso ");
+		nomeDoTeste = "Cadastro Valido";
+		cadastroValido = ExtentReport.createTest("Cenario: Cadastro valido ");
+		cadastroValido.createNode("Teste inicializado com sucesso ");
 		home.clicaNoMenu();
 		home.clicaNoLogin();
 		home.clicaNaNovaConta();
@@ -64,14 +69,14 @@ public class Cadastro {
 		cadastra.preencheEndereco();
 		cadastra.autorizaLocalizacao();
 		cadastra.clicaNoRegistro();
-		test.createNode("As informacoes foram inseridas com sucesso ");
+		cadastroValido.createNode("As informacoes foram inseridas com sucesso ");
 		driver.manage().timeouts().implicitlyWait(3000, TimeUnit.MILLISECONDS);
 		home.clicaNoMenu();
 		String nomeUsuarioCadastrado = driver.findElement(By.id("com.Advantage.aShopping:id/textViewMenuUser"))
 				.getText();
 		Assert.assertTrue(nomeUsuarioCadastrado != null);
-		test.createNode("O cadastro foi concluído, e um novo usuario foi registrado com sucesso ");
-		test.createNode("O teste foi encerrado ");
+		cadastroValido.createNode("O cadastro foi concluído, e um novo usuario foi registrado com sucesso ");
+		cadastroValido.createNode("O teste foi encerrado ");
 
 	}
 
@@ -79,8 +84,9 @@ public class Cadastro {
 	// @CadastroInvalido
 	public void CadastroInvalido() throws Exception {
 		// Interacoes na tela inicial
-		test = ExtentReport.createTest("CadastroFalha");
-		test.createNode("Teste inicializado com sucesso ");
+		nomeDoTeste = "Cadastro Invalido";
+		cadastroInvalido = ExtentReport.createTest("Cenario: Cadastro invalido");
+		cadastroInvalido.createNode("Teste inicializado com sucesso ");
 		home.clicaNoMenu();
 		home.clicaNoLogin();
 		home.clicaNaNovaConta();
@@ -91,23 +97,27 @@ public class Cadastro {
 		cadastra.insereSenhaConfirmacao();
 		cadastra.ajustaTela(driver, "REGISTER");
 		cadastra.clicaNoRegistro();
-		test.createNode("As informacoes foram inseridas com sucesso ");
+		cadastroInvalido.createNode("As informacoes foram inseridas com sucesso ");
 		Assert.assertTrue(cadastra.botaoRegistraAtivo());
-		test.createNode("O cadastro foi concluído, e um novo usuario nao foi registrado  ");
-		test.createNode("O teste foi encerrado ");
+		cadastroInvalido.createNode("O cadastro foi concluído, e um novo usuario nao foi registrado  ");
+		cadastroInvalido.createNode("O teste foi encerrado ");
 
 	}
 
 	@AfterMethod
-	public void finalizaTeste(ITestResult result) throws Exception {
-		ExtentReport.tearDown(result, test, driver);
-//		DriverManager.configDriver().resetApp();
-		DriverManager.encerra();
+	public void encerraTest(ITestResult result) throws Exception {
+		if (nomeDoTeste == "Cadastro Valido") {
+			ExtentReport.tearDown(result, cadastroValido, driver);
+		} else if (nomeDoTeste == "Cadastro Invalido") {
+			ExtentReport.tearDown(result, cadastroInvalido, driver);
+		}
+DriverFactory.encerra();
+//		DriverFactory.iniciaDriver().resetApp();
 	}
 
 	@AfterTest
 	public void encerraReport() {
-		ExtentReport.endReport();
+		ExtentReport.encerraReport(relatorio);
 
 	}
 }

@@ -1,5 +1,7 @@
 package br.com.rsinet.hub.ProjetoAppium.Screens;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -77,6 +79,7 @@ public class BuscaScreen {
 	public void selecionaFiltros() {
 		byCompability().click();
 		compability().click();
+		driver.manage().timeouts().implicitlyWait(3000, TimeUnit.MILLISECONDS);
 		byConnector().click();
 		connector().click();
 	}

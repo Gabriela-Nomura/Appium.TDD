@@ -10,76 +10,85 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 
-import br.com.rsinet.hub.ProjetoAppium.Manager.DriverManager;
+import br.com.rsinet.hub.ProjetoAppium.Factory.DriverFactory;
 import br.com.rsinet.hub.ProjetoAppium.Screens.BuscaScreen;
 import br.com.rsinet.hub.ProjetoAppium.Screens.HomeScreen;
 import br.com.rsinet.hub.ProjetoAppium.Utils.ExtentReport;
 import io.appium.java_client.android.AndroidDriver;
 
 public class BuscaLupa {
-	
+
 	@SuppressWarnings("rawtypes")
 	public static AndroidDriver driver;
 	private BuscaScreen busca;
 	private HomeScreen home;
-	private ExtentTest test;
+	private ExtentReports relatorio;
+	private ExtentTest buscaValida;
+	private ExtentTest buscaInvalida;
+	private String nomeDoTeste;
 
 	// Inicia o reporte
 	@BeforeTest
 	public void iniciaReport() {
-		ExtentReport.setExtent();
+		relatorio = ExtentReport.iniciaRelatorio();
 	}
 
 	// Instancia o driver, as paginas e configura o arquivo do excel
 	@BeforeMethod
 	public void inicioTeste() throws Exception {
-		driver = DriverManager.configDriver();
-		DriverManager.configExcel();
+		driver = DriverFactory.iniciaDriver();
+		DriverFactory.configExcel();
 		busca = new BuscaScreen(driver);
 		home = new HomeScreen(driver);
 	}
 
 	@Test
 	public void BuscaInvalida() throws Exception {
-		test = ExtentReport.createTest("Buscapelalupainvalida");
-		test.createNode("Teste inicializado com sucesso ");
+		nomeDoTeste = "Busca invalida";
+		buscaInvalida = ExtentReport.createTest("Cenario: Busca pela lupa invalida");
+		buscaInvalida.createNode("Teste inicializado com sucesso ");
 		driver.manage().timeouts().implicitlyWait(3000, TimeUnit.MILLISECONDS);
 		home.insereValorLupaInvalido();
-		test.createNode("O campo de busca recebeu os parametros enviados ");
+		buscaInvalida.createNode("O campo de busca recebeu os parametros enviados ");
 		home.processaBusca();
 		AssertJUnit.assertTrue(busca.semResultado());
-		test.createNode("A busca nao retornou nenhum resultado, conforme esperado");
-		test.createNode("O teste foi encerrado ");
+		buscaInvalida.createNode("A busca nao retornou nenhum resultado, conforme esperado");
+		buscaInvalida.createNode("O teste foi encerrado ");
 
 	}
 
 	@Test
 	public void BuscaValida() throws Exception {
-		test = ExtentReport.createTest("Buscapelalupavalida");
-		test.createNode("Teste inicializado com sucesso ");
+		nomeDoTeste = "Busca valida";
+		buscaValida = ExtentReport.createTest("Cenario: Busca pela lupa valida");
+		buscaValida.createNode("Teste inicializado com sucesso ");
 		driver.manage().timeouts().implicitlyWait(3000, TimeUnit.MILLISECONDS);
 		home.insereValorLupaValido();
-		test.createNode("O campo de busca recebeu os parametros enviados ");
+		buscaValida.createNode("O campo de busca recebeu os parametros enviados ");
 		home.processaBusca();
 		AssertJUnit.assertTrue(busca.contemResultado());
-		test.createNode("A busca retornou o resultado esperado ");
-		test.createNode("O teste foi encerrado ");
+		buscaValida.createNode("A busca retornou o resultado esperado ");
+		buscaValida.createNode("O teste foi encerrado ");
 
 	}
 
 	@AfterMethod
 	public void finalizaTeste(ITestResult result) throws Exception {
-		ExtentReport.tearDown(result, test, driver);
-		DriverManager.configDriver().resetApp();
+		if (nomeDoTeste == "Busca valida") {
+			ExtentReport.tearDown(result, buscaValida, driver);
+		} else if (nomeDoTeste == "Busca invalida") {
+			ExtentReport.tearDown(result, buscaInvalida, driver);
+		}
+		DriverFactory.encerra();
 
 	}
 
 	@AfterTest
 	public void encerraReport() {
-		ExtentReport.endReport();
-		DriverManager.encerra();
+		ExtentReport.encerraReport(relatorio);
 
 	}
 }
