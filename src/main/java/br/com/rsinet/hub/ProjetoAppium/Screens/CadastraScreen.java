@@ -1,5 +1,7 @@
 package br.com.rsinet.hub.ProjetoAppium.Screens;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -36,7 +38,6 @@ public class CadastraScreen {
 
 //Insere o nome de usuario de acordo com a geracao de nome feita aleatoriamente com 10 carac
 	public void insereNomeUsuario() {
-		waitUntil(nomeUsuarioBox());
 		nomeUsuarioBox().sendKeys(UserName.getNomeUsuario(10));
 	}
 
@@ -64,7 +65,15 @@ public class CadastraScreen {
 	public void insereSenha() throws Exception {
 		senhaBox().sendKeys(MassaDeDados.userSenha());
 	}
+	private WebElement menuIcone() {
+		driver.manage().timeouts().implicitlyWait(3000, TimeUnit.MILLISECONDS);
+		return driver.findElement(By.id("com.Advantage.aShopping:id/imageViewMenu"));
+	}
 
+	public void clicaNoMenu() {
+		driver.manage().timeouts().implicitlyWait(3000, TimeUnit.MILLISECONDS);
+		menuIcone().click();
+	}
 	private WebElement confirmaSenhaBox() {
 		return driver.findElement(By.xpath(
 				"//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.LinearLayout/android.widget.LinearLayout[4]/android.widget.RelativeLayout/android.widget.EditText"));
@@ -133,6 +142,7 @@ public class CadastraScreen {
 	}
 
 	public void autorizaLocalizacao() {
+		driver.manage().timeouts().implicitlyWait(3000, TimeUnit.MILLISECONDS);
 		autorizacao().click();
 	}
 }

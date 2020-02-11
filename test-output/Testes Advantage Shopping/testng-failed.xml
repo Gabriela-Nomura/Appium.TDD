@@ -3,15 +3,25 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Testes Advantage Shopping]">
   <test thread-count="5" name="TESTES(failed)">
     <classes>
-      <class name="br.com.rsinet.hub.ProjetoAppium.testes.Cadastro">
+      <class name="br.com.rsinet.hub.ProjetoAppium.testes.BuscaClique">
         <methods>
-          <include name="inicioTeste"/>
+          <include name="encerraReport"/>
+          <include name="inicio"/>
+          <include name="iniciaReport"/>
+          <include name="encerraTest"/>
+          <include name="BuscaValida"/>
+        </methods>
+      </class> <!-- br.com.rsinet.hub.ProjetoAppium.testes.BuscaClique -->
+      <class name="br.com.rsinet.hub.ProjetoAppium.testes.BuscaLupa">
+        <methods>
           <include name="iniciaReport"/>
           <include name="encerraReport"/>
-          <include name="CadastroValido"/>
-          <include name="encerraTest"/>
+          <include name="inicioTeste"/>
+          <include name="BuscaValida"/>
+          <include name="finalizaTeste"/>
+          <include name="BuscaInvalida"/>
         </methods>
-      </class> <!-- br.com.rsinet.hub.ProjetoAppium.testes.Cadastro -->
+      </class> <!-- br.com.rsinet.hub.ProjetoAppium.testes.BuscaLupa -->
     </classes>
   </test> <!-- TESTES(failed) -->
 </suite> <!-- Failed suite [Testes Advantage Shopping] -->

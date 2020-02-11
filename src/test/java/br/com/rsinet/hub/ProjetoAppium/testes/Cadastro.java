@@ -70,8 +70,7 @@ public class Cadastro {
 		cadastra.autorizaLocalizacao();
 		cadastra.clicaNoRegistro();
 		cadastroValido.createNode("As informacoes foram inseridas com sucesso ");
-		driver.manage().timeouts().implicitlyWait(3000, TimeUnit.MILLISECONDS);
-		home.clicaNoMenu();
+		cadastra.clicaNoMenu();
 		String nomeUsuarioCadastrado = driver.findElement(By.id("com.Advantage.aShopping:id/textViewMenuUser"))
 				.getText();
 		Assert.assertTrue(nomeUsuarioCadastrado != null);

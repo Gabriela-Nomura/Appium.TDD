@@ -21,16 +21,15 @@ public class DriverFactory {
 	public static DesiredCapabilities capabilities = new DesiredCapabilities();
 
 	public static AndroidDriver iniciaDriver() throws Exception {
+		if (driver == null) {
 
 		capabilities.setCapability("deviceName", "CelularDaGabi");
 		capabilities.setCapability("platformName", "Android");
 		capabilities.setCapability("appPackage", "com.Advantage.aShopping");
 		capabilities.setCapability("appActivity", ".SplashActivity");
 		capabilities.setCapability("newCommandTimeout", "120");
-		URL url = new URL("http://127.0.0.1:4724/wd/hub");
+		URL url = new URL("http://127.0.0.1:4723/wd/hub");
 
-		AndroidDriver driver = null;
-		if (driver == null) {
 			driver = new AndroidDriver<MobileElement>(url, capabilities);
 
 		}

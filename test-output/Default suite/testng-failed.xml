@@ -6,10 +6,10 @@
       <class name="br.com.rsinet.hub.ProjetoAppium.testes.Cadastro">
         <methods>
           <include name="inicioTeste"/>
-          <include name="finalizaTeste"/>
           <include name="iniciaReport"/>
           <include name="encerraReport"/>
           <include name="CadastroValido"/>
+          <include name="encerraTest"/>
         </methods>
       </class> <!-- br.com.rsinet.hub.ProjetoAppium.testes.Cadastro -->
     </classes>

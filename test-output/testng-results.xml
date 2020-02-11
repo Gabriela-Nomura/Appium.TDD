@@ -2,150 +2,150 @@
 <testng-results skipped="0" failed="0" ignored="0" total="6" passed="6">
   <reporter-output>
   </reporter-output>
-  <suite name="Testes Advantage Shopping" duration-ms="112136" started-at="2020-02-07T13:52:17 BRT" finished-at="2020-02-07T13:54:09 BRT">
+  <suite name="Testes Advantage Shopping" duration-ms="120604" started-at="2020-02-11T14:01:34 BRT" finished-at="2020-02-11T14:03:34 BRT">
     <groups>
     </groups>
-    <test name="TESTES" duration-ms="112136" started-at="2020-02-07T13:52:17 BRT" finished-at="2020-02-07T13:54:09 BRT">
+    <test name="TESTES" duration-ms="120604" started-at="2020-02-11T14:01:34 BRT" finished-at="2020-02-11T14:03:34 BRT">
       <class name="br.com.rsinet.hub.ProjetoAppium.testes.Cadastro">
-        <test-method status="PASS" signature="iniciaReport()[pri:0, instance:br.com.rsinet.hub.ProjetoAppium.testes.Cadastro@1b68ddbd]" name="iniciaReport" is-config="true" duration-ms="1" started-at="2020-02-07T13:52:17 BRT" finished-at="2020-02-07T13:52:17 BRT">
+        <test-method status="PASS" signature="iniciaReport()[pri:0, instance:br.com.rsinet.hub.ProjetoAppium.testes.Cadastro@60f70249]" name="iniciaReport" is-config="true" duration-ms="1" started-at="2020-02-11T14:01:34 BRT" finished-at="2020-02-11T14:01:34 BRT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- iniciaReport -->
-        <test-method status="PASS" signature="inicioTeste()[pri:0, instance:br.com.rsinet.hub.ProjetoAppium.testes.Cadastro@1b68ddbd]" name="inicioTeste" is-config="true" duration-ms="9051" started-at="2020-02-07T13:52:17 BRT" finished-at="2020-02-07T13:52:26 BRT">
+        <test-method status="PASS" signature="inicioTeste()[pri:0, instance:br.com.rsinet.hub.ProjetoAppium.testes.Cadastro@60f70249]" name="inicioTeste" is-config="true" duration-ms="16226" started-at="2020-02-11T14:01:34 BRT" finished-at="2020-02-11T14:01:51 BRT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- inicioTeste -->
-        <test-method status="PASS" signature="CadastroInvalido()[pri:0, instance:br.com.rsinet.hub.ProjetoAppium.testes.Cadastro@1b68ddbd]" name="CadastroInvalido" duration-ms="10783" started-at="2020-02-07T13:52:26 BRT" finished-at="2020-02-07T13:52:37 BRT">
+        <test-method status="PASS" signature="CadastroInvalido()[pri:0, instance:br.com.rsinet.hub.ProjetoAppium.testes.Cadastro@60f70249]" name="CadastroInvalido" duration-ms="11649" started-at="2020-02-11T14:01:51 BRT" finished-at="2020-02-11T14:02:02 BRT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- CadastroInvalido -->
-        <test-method status="PASS" signature="encerraTest(org.testng.ITestResult)[pri:0, instance:br.com.rsinet.hub.ProjetoAppium.testes.Cadastro@1b68ddbd]" name="encerraTest" is-config="true" duration-ms="310" started-at="2020-02-07T13:52:37 BRT" finished-at="2020-02-07T13:52:37 BRT">
+        <test-method status="PASS" signature="encerraTest(org.testng.ITestResult)[pri:0, instance:br.com.rsinet.hub.ProjetoAppium.testes.Cadastro@60f70249]" name="encerraTest" is-config="true" duration-ms="416" started-at="2020-02-11T14:02:02 BRT" finished-at="2020-02-11T14:02:03 BRT">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=CadastroInvalido status=SUCCESS method=Cadastro.CadastroInvalido()[pri:0, instance:br.com.rsinet.hub.ProjetoAppium.testes.Cadastro@1b68ddbd] output={null}]]]>
+                <![CDATA[[TestResult name=CadastroInvalido status=SUCCESS method=Cadastro.CadastroInvalido()[pri:0, instance:br.com.rsinet.hub.ProjetoAppium.testes.Cadastro@60f70249] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- encerraTest -->
-        <test-method status="PASS" signature="inicioTeste()[pri:0, instance:br.com.rsinet.hub.ProjetoAppium.testes.Cadastro@1b68ddbd]" name="inicioTeste" is-config="true" duration-ms="7805" started-at="2020-02-07T13:52:37 BRT" finished-at="2020-02-07T13:52:45 BRT">
+        <test-method status="PASS" signature="inicioTeste()[pri:0, instance:br.com.rsinet.hub.ProjetoAppium.testes.Cadastro@60f70249]" name="inicioTeste" is-config="true" duration-ms="8714" started-at="2020-02-11T14:02:03 BRT" finished-at="2020-02-11T14:02:11 BRT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- inicioTeste -->
-        <test-method status="PASS" signature="CadastroValido()[pri:0, instance:br.com.rsinet.hub.ProjetoAppium.testes.Cadastro@1b68ddbd]" name="CadastroValido" duration-ms="19030" started-at="2020-02-07T13:52:45 BRT" finished-at="2020-02-07T13:53:04 BRT">
+        <test-method status="PASS" signature="CadastroValido()[pri:0, instance:br.com.rsinet.hub.ProjetoAppium.testes.Cadastro@60f70249]" name="CadastroValido" duration-ms="18194" started-at="2020-02-11T14:02:11 BRT" finished-at="2020-02-11T14:02:30 BRT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- CadastroValido -->
-        <test-method status="PASS" signature="encerraTest(org.testng.ITestResult)[pri:0, instance:br.com.rsinet.hub.ProjetoAppium.testes.Cadastro@1b68ddbd]" name="encerraTest" is-config="true" duration-ms="507" started-at="2020-02-07T13:53:04 BRT" finished-at="2020-02-07T13:53:04 BRT">
+        <test-method status="PASS" signature="encerraTest(org.testng.ITestResult)[pri:0, instance:br.com.rsinet.hub.ProjetoAppium.testes.Cadastro@60f70249]" name="encerraTest" is-config="true" duration-ms="421" started-at="2020-02-11T14:02:30 BRT" finished-at="2020-02-11T14:02:30 BRT">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=CadastroValido status=SUCCESS method=Cadastro.CadastroValido()[pri:0, instance:br.com.rsinet.hub.ProjetoAppium.testes.Cadastro@1b68ddbd] output={null}]]]>
+                <![CDATA[[TestResult name=CadastroValido status=SUCCESS method=Cadastro.CadastroValido()[pri:0, instance:br.com.rsinet.hub.ProjetoAppium.testes.Cadastro@60f70249] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- encerraTest -->
-        <test-method status="PASS" signature="encerraReport()[pri:0, instance:br.com.rsinet.hub.ProjetoAppium.testes.Cadastro@1b68ddbd]" name="encerraReport" is-config="true" duration-ms="330" started-at="2020-02-07T13:54:09 BRT" finished-at="2020-02-07T13:54:09 BRT">
+        <test-method status="PASS" signature="encerraReport()[pri:0, instance:br.com.rsinet.hub.ProjetoAppium.testes.Cadastro@60f70249]" name="encerraReport" is-config="true" duration-ms="447" started-at="2020-02-11T14:03:34 BRT" finished-at="2020-02-11T14:03:34 BRT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- encerraReport -->
       </class> <!-- br.com.rsinet.hub.ProjetoAppium.testes.Cadastro -->
       <class name="br.com.rsinet.hub.ProjetoAppium.testes.BuscaClique">
-        <test-method status="PASS" signature="iniciaReport()[pri:0, instance:br.com.rsinet.hub.ProjetoAppium.testes.BuscaClique@59e5ddf]" name="iniciaReport" is-config="true" duration-ms="132" started-at="2020-02-07T13:52:17 BRT" finished-at="2020-02-07T13:52:17 BRT">
+        <test-method status="PASS" signature="iniciaReport()[pri:0, instance:br.com.rsinet.hub.ProjetoAppium.testes.BuscaClique@262816a8]" name="iniciaReport" is-config="true" duration-ms="435" started-at="2020-02-11T14:01:34 BRT" finished-at="2020-02-11T14:01:34 BRT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- iniciaReport -->
-        <test-method status="PASS" signature="inicio()[pri:0, instance:br.com.rsinet.hub.ProjetoAppium.testes.BuscaClique@59e5ddf]" name="inicio" is-config="true" duration-ms="9909" started-at="2020-02-07T13:53:32 BRT" finished-at="2020-02-07T13:53:42 BRT">
+        <test-method status="PASS" signature="inicio()[pri:0, instance:br.com.rsinet.hub.ProjetoAppium.testes.BuscaClique@262816a8]" name="inicio" is-config="true" duration-ms="10077" started-at="2020-02-11T14:02:56 BRT" finished-at="2020-02-11T14:03:06 BRT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- inicio -->
-        <test-method status="PASS" signature="BuscaInvalida()[pri:0, instance:br.com.rsinet.hub.ProjetoAppium.testes.BuscaClique@59e5ddf]" name="BuscaInvalida" duration-ms="10334" started-at="2020-02-07T13:53:42 BRT" finished-at="2020-02-07T13:53:52 BRT">
+        <test-method status="PASS" signature="BuscaInvalida()[pri:0, instance:br.com.rsinet.hub.ProjetoAppium.testes.BuscaClique@262816a8]" name="BuscaInvalida" duration-ms="10640" started-at="2020-02-11T14:03:06 BRT" finished-at="2020-02-11T14:03:17 BRT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- BuscaInvalida -->
-        <test-method status="PASS" signature="encerraTest(org.testng.ITestResult)[pri:0, instance:br.com.rsinet.hub.ProjetoAppium.testes.BuscaClique@59e5ddf]" name="encerraTest" is-config="true" duration-ms="353" started-at="2020-02-07T13:53:52 BRT" finished-at="2020-02-07T13:53:52 BRT">
+        <test-method status="PASS" signature="encerraTest(org.testng.ITestResult)[pri:0, instance:br.com.rsinet.hub.ProjetoAppium.testes.BuscaClique@262816a8]" name="encerraTest" is-config="true" duration-ms="308" started-at="2020-02-11T14:03:17 BRT" finished-at="2020-02-11T14:03:17 BRT">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=BuscaInvalida status=SUCCESS method=BuscaClique.BuscaInvalida()[pri:0, instance:br.com.rsinet.hub.ProjetoAppium.testes.BuscaClique@59e5ddf] output={null}]]]>
+                <![CDATA[[TestResult name=BuscaInvalida status=SUCCESS method=BuscaClique.BuscaInvalida()[pri:0, instance:br.com.rsinet.hub.ProjetoAppium.testes.BuscaClique@262816a8] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- encerraTest -->
-        <test-method status="PASS" signature="inicio()[pri:0, instance:br.com.rsinet.hub.ProjetoAppium.testes.BuscaClique@59e5ddf]" name="inicio" is-config="true" duration-ms="10146" started-at="2020-02-07T13:53:52 BRT" finished-at="2020-02-07T13:54:02 BRT">
+        <test-method status="PASS" signature="inicio()[pri:0, instance:br.com.rsinet.hub.ProjetoAppium.testes.BuscaClique@262816a8]" name="inicio" is-config="true" duration-ms="9863" started-at="2020-02-11T14:03:17 BRT" finished-at="2020-02-11T14:03:27 BRT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- inicio -->
-        <test-method status="PASS" signature="BuscaValida()[pri:0, instance:br.com.rsinet.hub.ProjetoAppium.testes.BuscaClique@59e5ddf]" name="BuscaValida" duration-ms="5636" started-at="2020-02-07T13:54:02 BRT" finished-at="2020-02-07T13:54:08 BRT">
+        <test-method status="PASS" signature="BuscaValida()[pri:0, instance:br.com.rsinet.hub.ProjetoAppium.testes.BuscaClique@262816a8]" name="BuscaValida" duration-ms="6336" started-at="2020-02-11T14:03:27 BRT" finished-at="2020-02-11T14:03:34 BRT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- BuscaValida -->
-        <test-method status="PASS" signature="encerraTest(org.testng.ITestResult)[pri:0, instance:br.com.rsinet.hub.ProjetoAppium.testes.BuscaClique@59e5ddf]" name="encerraTest" is-config="true" duration-ms="450" started-at="2020-02-07T13:54:08 BRT" finished-at="2020-02-07T13:54:09 BRT">
+        <test-method status="PASS" signature="encerraTest(org.testng.ITestResult)[pri:0, instance:br.com.rsinet.hub.ProjetoAppium.testes.BuscaClique@262816a8]" name="encerraTest" is-config="true" duration-ms="406" started-at="2020-02-11T14:03:34 BRT" finished-at="2020-02-11T14:03:34 BRT">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=BuscaValida status=SUCCESS method=BuscaClique.BuscaValida()[pri:0, instance:br.com.rsinet.hub.ProjetoAppium.testes.BuscaClique@59e5ddf] output={null}]]]>
+                <![CDATA[[TestResult name=BuscaValida status=SUCCESS method=BuscaClique.BuscaValida()[pri:0, instance:br.com.rsinet.hub.ProjetoAppium.testes.BuscaClique@262816a8] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- encerraTest -->
-        <test-method status="PASS" signature="encerraReport()[pri:0, instance:br.com.rsinet.hub.ProjetoAppium.testes.BuscaClique@59e5ddf]" name="encerraReport" is-config="true" duration-ms="1" started-at="2020-02-07T13:54:09 BRT" finished-at="2020-02-07T13:54:09 BRT">
+        <test-method status="PASS" signature="encerraReport()[pri:0, instance:br.com.rsinet.hub.ProjetoAppium.testes.BuscaClique@262816a8]" name="encerraReport" is-config="true" duration-ms="1" started-at="2020-02-11T14:03:34 BRT" finished-at="2020-02-11T14:03:34 BRT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- encerraReport -->
       </class> <!-- br.com.rsinet.hub.ProjetoAppium.testes.BuscaClique -->
       <class name="br.com.rsinet.hub.ProjetoAppium.testes.BuscaLupa">
-        <test-method status="PASS" signature="iniciaReport()[pri:0, instance:br.com.rsinet.hub.ProjetoAppium.testes.BuscaLupa@646d64ab]" name="iniciaReport" is-config="true" duration-ms="1" started-at="2020-02-07T13:52:17 BRT" finished-at="2020-02-07T13:52:17 BRT">
+        <test-method status="PASS" signature="iniciaReport()[pri:0, instance:br.com.rsinet.hub.ProjetoAppium.testes.BuscaLupa@31ee2fdb]" name="iniciaReport" is-config="true" duration-ms="2" started-at="2020-02-11T14:01:34 BRT" finished-at="2020-02-11T14:01:34 BRT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- iniciaReport -->
-        <test-method status="PASS" signature="inicioTeste()[pri:0, instance:br.com.rsinet.hub.ProjetoAppium.testes.BuscaLupa@646d64ab]" name="inicioTeste" is-config="true" duration-ms="10006" started-at="2020-02-07T13:53:04 BRT" finished-at="2020-02-07T13:53:14 BRT">
+        <test-method status="PASS" signature="inicioTeste()[pri:0, instance:br.com.rsinet.hub.ProjetoAppium.testes.BuscaLupa@31ee2fdb]" name="inicioTeste" is-config="true" duration-ms="9431" started-at="2020-02-11T14:02:30 BRT" finished-at="2020-02-11T14:02:39 BRT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- inicioTeste -->
-        <test-method status="PASS" signature="BuscaInvalida()[pri:0, instance:br.com.rsinet.hub.ProjetoAppium.testes.BuscaLupa@646d64ab]" name="BuscaInvalida" duration-ms="2917" started-at="2020-02-07T13:53:14 BRT" finished-at="2020-02-07T13:53:17 BRT">
+        <test-method status="PASS" signature="BuscaInvalida()[pri:0, instance:br.com.rsinet.hub.ProjetoAppium.testes.BuscaLupa@31ee2fdb]" name="BuscaInvalida" duration-ms="3346" started-at="2020-02-11T14:02:39 BRT" finished-at="2020-02-11T14:02:43 BRT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- BuscaInvalida -->
-        <test-method status="PASS" signature="finalizaTeste(org.testng.ITestResult)[pri:0, instance:br.com.rsinet.hub.ProjetoAppium.testes.BuscaLupa@646d64ab]" name="finalizaTeste" is-config="true" duration-ms="309" started-at="2020-02-07T13:53:17 BRT" finished-at="2020-02-07T13:53:18 BRT">
+        <test-method status="PASS" signature="finalizaTeste(org.testng.ITestResult)[pri:0, instance:br.com.rsinet.hub.ProjetoAppium.testes.BuscaLupa@31ee2fdb]" name="finalizaTeste" is-config="true" duration-ms="344" started-at="2020-02-11T14:02:43 BRT" finished-at="2020-02-11T14:02:43 BRT">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=BuscaInvalida status=SUCCESS method=BuscaLupa.BuscaInvalida()[pri:0, instance:br.com.rsinet.hub.ProjetoAppium.testes.BuscaLupa@646d64ab] output={null}]]]>
+                <![CDATA[[TestResult name=BuscaInvalida status=SUCCESS method=BuscaLupa.BuscaInvalida()[pri:0, instance:br.com.rsinet.hub.ProjetoAppium.testes.BuscaLupa@31ee2fdb] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- finalizaTeste -->
-        <test-method status="PASS" signature="inicioTeste()[pri:0, instance:br.com.rsinet.hub.ProjetoAppium.testes.BuscaLupa@646d64ab]" name="inicioTeste" is-config="true" duration-ms="10059" started-at="2020-02-07T13:53:18 BRT" finished-at="2020-02-07T13:53:28 BRT">
+        <test-method status="PASS" signature="inicioTeste()[pri:0, instance:br.com.rsinet.hub.ProjetoAppium.testes.BuscaLupa@31ee2fdb]" name="inicioTeste" is-config="true" duration-ms="8747" started-at="2020-02-11T14:02:43 BRT" finished-at="2020-02-11T14:02:52 BRT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- inicioTeste -->
-        <test-method status="PASS" signature="BuscaValida()[pri:0, instance:br.com.rsinet.hub.ProjetoAppium.testes.BuscaLupa@646d64ab]" name="BuscaValida" duration-ms="3592" started-at="2020-02-07T13:53:28 BRT" finished-at="2020-02-07T13:53:31 BRT">
+        <test-method status="PASS" signature="BuscaValida()[pri:0, instance:br.com.rsinet.hub.ProjetoAppium.testes.BuscaLupa@31ee2fdb]" name="BuscaValida" duration-ms="4162" started-at="2020-02-11T14:02:52 BRT" finished-at="2020-02-11T14:02:56 BRT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- BuscaValida -->
-        <test-method status="PASS" signature="finalizaTeste(org.testng.ITestResult)[pri:0, instance:br.com.rsinet.hub.ProjetoAppium.testes.BuscaLupa@646d64ab]" name="finalizaTeste" is-config="true" duration-ms="427" started-at="2020-02-07T13:53:31 BRT" finished-at="2020-02-07T13:53:32 BRT">
+        <test-method status="PASS" signature="finalizaTeste(org.testng.ITestResult)[pri:0, instance:br.com.rsinet.hub.ProjetoAppium.testes.BuscaLupa@31ee2fdb]" name="finalizaTeste" is-config="true" duration-ms="335" started-at="2020-02-11T14:02:56 BRT" finished-at="2020-02-11T14:02:56 BRT">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=BuscaValida status=SUCCESS method=BuscaLupa.BuscaValida()[pri:0, instance:br.com.rsinet.hub.ProjetoAppium.testes.BuscaLupa@646d64ab] output={null}]]]>
+                <![CDATA[[TestResult name=BuscaValida status=SUCCESS method=BuscaLupa.BuscaValida()[pri:0, instance:br.com.rsinet.hub.ProjetoAppium.testes.BuscaLupa@31ee2fdb] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- finalizaTeste -->
-        <test-method status="PASS" signature="encerraReport()[pri:0, instance:br.com.rsinet.hub.ProjetoAppium.testes.BuscaLupa@646d64ab]" name="encerraReport" is-config="true" duration-ms="0" started-at="2020-02-07T13:54:09 BRT" finished-at="2020-02-07T13:54:09 BRT">
+        <test-method status="PASS" signature="encerraReport()[pri:0, instance:br.com.rsinet.hub.ProjetoAppium.testes.BuscaLupa@31ee2fdb]" name="encerraReport" is-config="true" duration-ms="0" started-at="2020-02-11T14:03:34 BRT" finished-at="2020-02-11T14:03:34 BRT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- encerraReport -->
